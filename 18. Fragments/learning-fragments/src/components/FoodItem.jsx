@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styles from "./FoodItem.module.css"
 
 const FoodItem = ({ foodItem }) => {
@@ -7,11 +6,6 @@ const FoodItem = ({ foodItem }) => {
       <span className={styles['hg-custom-span']}>{foodItem}</span>
       </li>
   );
-};
-
-// Add PropTypes validation
-FoodItem.propTypes = {
-  foodItem: PropTypes.string.isRequired
 };
 
 export default FoodItem;

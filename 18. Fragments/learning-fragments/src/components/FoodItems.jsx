@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import FoodItem from "./FoodItem";
 
 const FoodItems = ({ foodItems }) => {
@@ -9,11 +8,6 @@ const FoodItems = ({ foodItems }) => {
       ))}
     </ul>
   )
-};
-
-// Add PropTypes validation
-FoodItems.propTypes = {
-  foodItems: PropTypes.array.isRequired
 };
 
 export default FoodItems;
