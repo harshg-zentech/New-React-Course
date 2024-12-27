@@ -2,16 +2,25 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css'
 
 function App() {
+  let foodItems = [];
+  // let foodItems= ["Dal", "Green Vegetables", "Roti", "Salad", "Milk", "Ghee"];
+  let emptyMessage = !foodItems?.length ? <h3>I am still hungry!</h3> : null;
+
+  // if (!foodItems.length) {
+  //   return (
+  //     <h3>I am still hungry!</h3>
+  //   )
+  // }
 
   return (
     <>
       <h1>Healthy Food</h1>
+      {/* {emptyMessage} */}
+      {!foodItems?.length && emptyMessage}
       <ul className="list-group">
-        <li className="list-group-item">An item</li>
-        <li className="list-group-item">A second item</li>
-        <li className="list-group-item">A third item</li>
-        <li className="list-group-item">A fourth item</li>
-        <li className="list-group-item">And a fifth one</li>
+        {foodItems.map((foodItem) => (
+          <li key={foodItem} className="list-group-item">{foodItem}</li>
+        ))}
       </ul>
     </>
   );
