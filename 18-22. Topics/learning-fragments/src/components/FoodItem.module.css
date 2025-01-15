@@ -6,3 +6,7 @@
   color: orangered;
   font-weight: 500;
 }
+
+.hg-custom-button {
+  float: right;
+}

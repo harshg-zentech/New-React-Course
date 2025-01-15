@@ -3,6 +3,7 @@ import './App.css'
 import FoodItems from "./components/FoodItems";
 import ErrorMessage from "./components/ErrorMessage";
 import Container from "./components/Container";
+import FoodInput from "./components/FoodInput";
 
 function App() {
   // let foodItems= [];
@@ -18,13 +19,14 @@ function App() {
     <>
       <Container>
         <h1 className="food-heading">Healthy Food</h1>
+        <FoodInput></FoodInput>
         <ErrorMessage foodItems={foodItems} />
         <FoodItems foodItems={foodItems} />
       </Container>
 
-      <Container>
+      {/* <Container>
         <p>Above is the list of the healthy food items which are good for health and well being.</p>
-      </Container>
+      </Container> */}
     </>
   );
 }
