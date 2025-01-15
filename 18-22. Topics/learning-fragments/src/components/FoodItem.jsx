@@ -1,8 +1,8 @@
 import styles from "./FoodItem.module.css"
 
-const FoodItem = ({ foodItem, handleBuyButton }) => {
+const FoodItem = ({ foodItem, bought, handleBuyButton }) => {
   return (
-    <li className={`${styles['hg-custom-item']} list-group-item`}>
+    <li className={`${styles['hg-custom-item']} list-group-item ${bought && 'active'}`}>
       <span className={styles['hg-custom-span']}>{foodItem}</span>
       <button 
         className={`${styles['hg-custom-button']} btn btn-info`} 

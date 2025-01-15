@@ -1,4 +1,6 @@
 .hg-custom-input {
+  border: 1px solid #141414;
+  border-radius: 2px;
   padding: 4px;
   margin: 8px 0;
   width: 100%;
