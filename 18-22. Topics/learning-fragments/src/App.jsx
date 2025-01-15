@@ -15,11 +15,15 @@ function App() {
   //   )
   // }
 
+  const handleOnChange = (event) => {
+    console.log(event.target.value);
+  }
+
   return (
     <>
       <Container>
         <h1 className="food-heading">Healthy Food</h1>
-        <FoodInput></FoodInput>
+        <FoodInput handleOnChange={handleOnChange}></FoodInput>
         <ErrorMessage foodItems={foodItems} />
         <FoodItems foodItems={foodItems} />
       </Container>
