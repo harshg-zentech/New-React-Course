@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./AddTodo.module.css";
+import { BiCommentAdd } from "react-icons/bi";
 
 function AddTodo({onNewTodoItem}) {
   const [todoName, setTodoName] = useState("");
@@ -32,7 +33,7 @@ function AddTodo({onNewTodoItem}) {
           <button type="button" className="btn btn-success hg-button" 
             onClick={handleAddButtonClick}
           >
-            Add
+            <BiCommentAdd />
           </button>
         </div>
       </div>

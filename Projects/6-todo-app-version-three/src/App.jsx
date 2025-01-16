@@ -9,7 +9,6 @@ function App() {
   const [todoItems, setTodoItems] = useState([]);
 
   const handleNewTodoItem = (todoItemName, todoItemDueDate) => {
-    console.log(`New Todo Added: ${todoItemName}, Due Date: ${todoItemDueDate}`);
     const newTodoItems = [...todoItems, { name: todoItemName, dueDate: todoItemDueDate }];
     setTodoItems(newTodoItems);
   };
@@ -17,7 +16,6 @@ function App() {
   const handleDeleteTodoItem = (todoItemName) => {
     const newTodoItems = todoItems.filter((todoItem) => todoItem.name !== todoItemName);
     setTodoItems(newTodoItems);
-    console.log(`Todo Item Deleted: ${todoItemName}`);
   };
 
   return <center className="todo-container"> 

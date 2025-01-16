@@ -1,3 +1,5 @@
+import { RiChatDeleteLine } from "react-icons/ri";
+
 function TodoItem({ todoName, todoDate, onDeleteClick }) {
   return (
     <div className="container">
@@ -10,7 +12,7 @@ function TodoItem({ todoName, todoDate, onDeleteClick }) {
         </div>
         <div className="col-2 text-end">
           <button type="button" className="btn btn-danger hg-button" onClick={() => onDeleteClick(todoName)}>
-            Delete
+            <RiChatDeleteLine />
           </button>
         </div>
       </div>
