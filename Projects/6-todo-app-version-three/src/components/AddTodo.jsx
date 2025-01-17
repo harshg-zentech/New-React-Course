@@ -1,37 +1,31 @@
-import { useState } from "react";
+import { useRef } from "react";
 import styles from "./AddTodo.module.css";
 import { BiCommentAdd } from "react-icons/bi";
 
 function AddTodo({onNewTodoItem}) {
-  const [todoName, setTodoName] = useState("");
-  const [todoDueDate, setTodoDueDate] = useState("");
-
-  const handleTodoNameChange = (event) => {
-    setTodoName(event.target.value);
-  };
-
-  const handleTodoDueDateChange = (event) => {
-    setTodoDueDate(event.target.value);
-  };
+  const todoNameElementRef = useRef("");
+  const todoDueDateElementRef = useRef("");
 
   const handleAddButtonClick = (event) => {
     event.preventDefault();
+    const todoName = todoNameElementRef.current.value;
+    const todoDueDate = todoDueDateElementRef.current.value;
+    todoNameElementRef.current.value = "";
+    todoDueDateElementRef.current.value = "";
     onNewTodoItem(todoName, todoDueDate);
-    setTodoName("");
-    setTodoDueDate("");
   };
 
   return (
     <div className="container">
-      <form className="row hg-row">
+      <form className="row hg-row" onSubmit={handleAddButtonClick}>
         <div className="col-6">
-          <input className={styles?.hgInput} type="text" placeholder="Enter To Do here" value={todoName} onChange={handleTodoNameChange} />
+          <input className={styles?.hgInput} type="text" placeholder="Enter To Do here" ref={todoNameElementRef} />
         </div>
         <div className="col-4">
-          <input className={styles?.hgInput} type="date" value={todoDueDate} onChange={handleTodoDueDateChange} />
+          <input className={styles?.hgInput} type="date" ref={todoDueDateElementRef} />
         </div>
         <div className="col-2 text-end">
-          <button type="submit" className="btn btn-success hg-button" onSubmit={handleAddButtonClick}>
+          <button type="submit" className="btn btn-success hg-button">
             <BiCommentAdd />
           </button>
         </div>
