@@ -1,35 +1,42 @@
-import { useRef } from "react";
+import { useState } from "react";
 import styles from "./AddTodo.module.css";
 import { BiCommentAdd } from "react-icons/bi";
 
 function AddTodo({onNewTodoItem}) {
-  const todoNameElementRef = useRef("");
-  const todoDueDateElementRef = useRef("");
+  const [todoName, setTodoName] = useState("");
+  const [todoDueDate, setTodoDueDate] = useState("");
 
-  const handleAddButtonClick = (event) => {
-    event.preventDefault();
-    const todoName = todoNameElementRef.current.value;
-    const todoDueDate = todoDueDateElementRef.current.value;
-    todoNameElementRef.current.value = "";
-    todoDueDateElementRef.current.value = "";
+  const handleTodoNameChange = (event) => {
+    setTodoName(event.target.value);
+  };
+
+  const handleTodoDueDateChange = (event) => {
+    setTodoDueDate(event.target.value);
+  };
+
+  const handleAddButtonClick = () => {
     onNewTodoItem(todoName, todoDueDate);
+    setTodoName("");
+    setTodoDueDate("");
   };
 
   return (
     <div className="container">
-      <form className="row hg-row" onSubmit={handleAddButtonClick}>
+      <div className="row hg-row">
         <div className="col-6">
-          <input className={styles?.hgInput} type="text" placeholder="Enter To Do here" ref={todoNameElementRef} />
+          <input className={styles?.hgInput} type="text" placeholder="Enter To Do here" value={todoName} onChange={handleTodoNameChange} />
         </div>
         <div className="col-4">
-          <input className={styles?.hgInput} type="date" ref={todoDueDateElementRef} />
+          <input className={styles?.hgInput} type="date" value={todoDueDate} onChange={handleTodoDueDateChange} />
         </div>
         <div className="col-2 text-end">
-          <button type="submit" className="btn btn-success hg-button">
+          <button type="button" className="btn btn-success hg-button" 
+            onClick={handleAddButtonClick}
+          >
             <BiCommentAdd />
           </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 }
